@@ -8,13 +8,9 @@ var views = chrome.extension.getViews({
     type: "popup"
 });
 
-// for (var i = 0; i < views.length; i++) {
-//     views[i].document.getElementById('x').innerHTML = "My Custom Value";
-// }
 
 chrome.runtime.onInstalled.addListener(function() {
-  
-  
+
   
 });
 
@@ -37,7 +33,7 @@ chrome.declarativeContent.onPageChanged.removeRules(undefined, function() {
 chrome.webRequest.onHeadersReceived.addListener(function(details){
     
 
-  if(details.initiator.match(/\.preview\.zesty\.io/) !== null && details.type == "main_frame") {
+  if(details.initiator && details.initiator.match(/\.preview\.zesty\.io/) !== null && details.type == "main_frame") {
  
     chrome.storage.sync.set({previewURL: details.initiator});
     console.log(details.responseHeaders)
@@ -51,8 +47,6 @@ chrome.webRequest.onHeadersReceived.addListener(function(details){
           
 
         })
-        
-        //views[0].document.getElementById('affectedZuids').innerHTML = header.value;
       }
       if(header.name == 'z-branch'){
         chrome.storage.sync.set({'viewBranch': header.value});
