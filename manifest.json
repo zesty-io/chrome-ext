@@ -1,0 +1,38 @@
+{
+  "name": "Zesty.io WebEngine View Explorer",
+  "version": "1.0",
+  "description": "A tool for Zesty.io End Users to gain insight into their preview envirnoment views.",
+  "permissions": [
+    "activeTab", 
+    "declarativeContent", 
+    "storage",
+    "cookies",
+    "tabs",
+    "history",
+    "*://*.zesty.io/",
+    "*://*.zesty.io/*",
+    "webRequest",
+    "webRequestBlocking"
+  ],
+  "options_page": "options.html",
+  "background": {
+    "scripts": ["background.js"],
+    "persistent": true
+  },
+  "page_action": {
+    "default_popup": "popup.html",
+    "default_icon": {
+      "16": "images/chrome-ext-icons-16.png",
+      "32": "images/chrome-ext-icons-32.png",
+      "48": "images/chrome-ext-icons-48.png",
+      "128": "images/chrome-ext-icons-128.png"
+    }
+  },
+  "icons": {
+    "16": "images/chrome-ext-icons-16.png",
+    "32": "images/chrome-ext-icons-32.png",
+    "48": "images/chrome-ext-icons-48.png",
+    "128": "images/chrome-ext-icons-128.png"
+  },
+  "manifest_version": 2
+}

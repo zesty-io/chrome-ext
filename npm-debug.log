@@ -1,0 +1,80 @@
+0 info it worked if it ends with ok
+1 verbose cli [ '/Users/kilroy/.nvm/versions/node/v6.15.0/bin/node',
+1 verbose cli   '/Users/kilroy/.nvm/versions/node/v6.15.0/bin/npm',
+1 verbose cli   'view',
+1 verbose cli   '--json',
+1 verbose cli   'auth-util-js',
+1 verbose cli   'description',
+1 verbose cli   'dist-tags.latest',
+1 verbose cli   'homepage' ]
+2 info using npm@3.10.10
+3 info using node@v6.15.0
+4 verbose config Skipping project config: /Users/kilroy/.npmrc. (matches userconfig)
+5 silly mapToRegistry name auth-util-js
+6 silly mapToRegistry using default registry
+7 silly mapToRegistry registry https://registry.npmjs.org/
+8 silly mapToRegistry data Result {
+8 silly mapToRegistry   raw: 'auth-util-js',
+8 silly mapToRegistry   scope: null,
+8 silly mapToRegistry   escapedName: 'auth-util-js',
+8 silly mapToRegistry   name: 'auth-util-js',
+8 silly mapToRegistry   rawSpec: '',
+8 silly mapToRegistry   spec: 'latest',
+8 silly mapToRegistry   type: 'tag' }
+9 silly mapToRegistry uri https://registry.npmjs.org/auth-util-js
+10 verbose request uri https://registry.npmjs.org/auth-util-js
+11 verbose request no auth needed
+12 info attempt registry request try #1 at 9:21:28 AM
+13 verbose request using bearer token for auth
+14 verbose request id 369a0dad3736b53a
+15 http request GET https://registry.npmjs.org/auth-util-js
+16 http 404 https://registry.npmjs.org/auth-util-js
+17 verbose headers { date: 'Tue, 21 Apr 2020 16:21:29 GMT',
+17 verbose headers   'content-type': 'application/json',
+17 verbose headers   'content-length': '21',
+17 verbose headers   connection: 'keep-alive',
+17 verbose headers   'set-cookie': [ '__cfduid=d24390f9b2f64307bb39594054c77464a1587486089; expires=Thu, 21-May-20 16:21:29 GMT; path=/; domain=.npmjs.org; HttpOnly; SameSite=Lax' ],
+17 verbose headers   'cf-ray': '587870385e1e9400-SJC',
+17 verbose headers   vary: 'Accept-Encoding',
+17 verbose headers   'cf-cache-status': 'MISS',
+17 verbose headers   'expect-ct': 'max-age=604800, report-uri="https://report-uri.cloudflare.com/cdn-cgi/beacon/expect-ct"',
+17 verbose headers   server: 'cloudflare',
+17 verbose headers   'cf-request-id': '023f24773700009400b29de200000001' }
+18 silly get cb [ 404,
+18 silly get   { date: 'Tue, 21 Apr 2020 16:21:29 GMT',
+18 silly get     'content-type': 'application/json',
+18 silly get     'content-length': '21',
+18 silly get     connection: 'keep-alive',
+18 silly get     'set-cookie': [ '__cfduid=d24390f9b2f64307bb39594054c77464a1587486089; expires=Thu, 21-May-20 16:21:29 GMT; path=/; domain=.npmjs.org; HttpOnly; SameSite=Lax' ],
+18 silly get     'cf-ray': '587870385e1e9400-SJC',
+18 silly get     vary: 'Accept-Encoding',
+18 silly get     'cf-cache-status': 'MISS',
+18 silly get     'expect-ct': 'max-age=604800, report-uri="https://report-uri.cloudflare.com/cdn-cgi/beacon/expect-ct"',
+18 silly get     server: 'cloudflare',
+18 silly get     'cf-request-id': '023f24773700009400b29de200000001' } ]
+19 verbose stack Error: Not found : auth-util-js
+19 verbose stack     at makeError (/Users/kilroy/.nvm/versions/node/v6.15.0/lib/node_modules/npm/node_modules/npm-registry-client/lib/request.js:302:12)
+19 verbose stack     at CachingRegistryClient.<anonymous> (/Users/kilroy/.nvm/versions/node/v6.15.0/lib/node_modules/npm/node_modules/npm-registry-client/lib/request.js:290:14)
+19 verbose stack     at Request._callback (/Users/kilroy/.nvm/versions/node/v6.15.0/lib/node_modules/npm/node_modules/npm-registry-client/lib/request.js:210:14)
+19 verbose stack     at Request.self.callback (/Users/kilroy/.nvm/versions/node/v6.15.0/lib/node_modules/npm/node_modules/request/request.js:187:22)
+19 verbose stack     at emitTwo (events.js:106:13)
+19 verbose stack     at Request.emit (events.js:191:7)
+19 verbose stack     at Request.<anonymous> (/Users/kilroy/.nvm/versions/node/v6.15.0/lib/node_modules/npm/node_modules/request/request.js:1048:10)
+19 verbose stack     at emitOne (events.js:96:13)
+19 verbose stack     at Request.emit (events.js:188:7)
+19 verbose stack     at IncomingMessage.<anonymous> (/Users/kilroy/.nvm/versions/node/v6.15.0/lib/node_modules/npm/node_modules/request/request.js:969:12)
+20 verbose statusCode 404
+21 verbose pkgid auth-util-js
+22 verbose cwd /Users/kilroy/code/zesty-io/chrome-ext
+23 error Darwin 19.4.0
+24 error argv "/Users/kilroy/.nvm/versions/node/v6.15.0/bin/node" "/Users/kilroy/.nvm/versions/node/v6.15.0/bin/npm" "view" "--json" "auth-util-js" "description" "dist-tags.latest" "homepage"
+25 error node v6.15.0
+26 error npm  v3.10.10
+27 error code E404
+28 error 404 Not found : auth-util-js
+29 error 404
+30 error 404 'auth-util-js' is not in the npm registry.
+31 error 404 You should bug the author to publish it (or use the name yourself!)
+32 error 404 Note that you can also install from a
+33 error 404 tarball, folder, http url, or git url.
+34 verbose exit [ 1, true ]
