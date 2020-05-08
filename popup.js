@@ -87,23 +87,50 @@ async function getCookies(domain, name, callback) {
 getCookies("http://zesty.io", "APP_SID", async function(id) {
     if(id) {
       authToken = id
-      await verifyUserAndGetZUID(authToken);
-      await getUserInfo(userZuid, authToken);
+      userZuid = await verifyUserAndGetZUID(authToken);
+      user = await getUserInfo(userZuid, authToken);
+      setUserAvatar(user.avatar)
 
       chrome.storage.sync.get('viewAffectedResources', async function(data) {
-        affectedZuidArray = splitAndUniqueZuidsKeys(data.viewAffectedResources);
-        instanceZuid = getInstanceZuid(affectedZuidArray);
-        await getInstanceInfo(instanceZuid, authToken);
-        instanceDetails.innerHTML = `<strong>${instance.name}</strong><br> ${instanceZuid} (<a href="${instance.accountsUrl}" target="_blank">edit  settings</a>)`;
-        let modelsAPIURL = instance.apiUrl + '/content/models';
-        let models = await getDataFromAPICall(modelsAPIURL, authToken)
-        alert(JSON.stringify(models))
-        document.getElementById('affectedZuids').innerHTML = affectedZuidArray.join()
-
-
+        if(data.viewAffectedResources !== false){
+          affectedZuidArray = splitAndUniqueZuidsKeys(data.viewAffectedResources);
+          instanceZuid = getInstanceZuid(affectedZuidArray);
+          await getInstanceInfo(instanceZuid, authToken);
+          instanceDetails.innerHTML = `<strong>${instance.name}</strong><br> ${instanceZuid} (<a href="${instance.accountsUrl}" target="_blank">edit  settings</a>)`;
+          let modelsAPIURL = instance.apiUrl + '/content/models';
+          let models = await getDataFromAPICall(modelsAPIURL, authToken)
+          let accessedModels = getUsedModelArray(affectedZuidArray, models)
+          populateAccessedModels(accessedModels)
+        }
       });
     }
 });
+
+function getUsedModelArray(affectedZuidArray, models){
+  let modelsHit = []
+  models.forEach(model => {
+    affectedZuidArray.forEach(zuid => {
+      if(zuid == model.ZUID) {
+        modelsHit.push(model) 
+      }
+    })
+  });
+
+  return modelsHit;
+}
+
+function populateAccessedModels(accessedModels){
+  accessedModels = accessedModels.reverse()
+  let html = ''
+
+  accessedModels.forEach(model => {
+    let managerUrl = instance.managerUrl + '/#!/content/' + model.ZUID
+    html += `<strong>${model.name}</strong> <span class="light">(${model.ZUID})</span> <a href="${managerUrl}" target="_blank">edit</a> <br>`
+  })
+
+  document.getElementById('affectedZuids').innerHTML = html
+
+}
 
 
 // AUTO REFRESH FUNCTIONS
@@ -158,9 +185,7 @@ async function verifyUserAndGetZUID(authToken){
 	}).then(function(response) {
 		return response.json();
 	}).then(function(json) {
-    
-    userZuid = json.meta.userZuid
-		return userZuid;
+		return json.meta.userZuid;
 	});
 }
 
@@ -177,9 +202,7 @@ async function getUserInfo(zuid,authToken){
 		return response.json();
 	}).then(function(json) {
     json.data.avatar = 'https://www.gravatar.com/avatar/'+json.data.emailHash
-    user = json.data
-    setUserAvatar(user.avatar)
-		return user;
+		return json.data;
 	});
 }
 
@@ -215,7 +238,6 @@ async function getDataFromAPICall(apiUrl,authToken){
 	}).then(function(response) {
 		return response.json();
 	}).then(function(json) {
-    alert(JSON.stringify(json))
 		return json.data;
 	});
 }
