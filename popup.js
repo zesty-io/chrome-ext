@@ -96,7 +96,7 @@ getCookies("http://zesty.io", "APP_SID", async function(id) {
           affectedZuidArray = splitAndUniqueZuidsKeys(data.viewAffectedResources);
           instanceZuid = getInstanceZuid(affectedZuidArray);
           await getInstanceInfo(instanceZuid, authToken);
-          instanceDetails.innerHTML = `<strong>${instance.name}</strong><br> ${instanceZuid} (<a href="${instance.accountsUrl}" target="_blank">edit  settings</a>)`;
+          populateInstanceData(instance);
           let modelsAPIURL = instance.apiUrl + '/content/models';
           let models = await getDataFromAPICall(modelsAPIURL, authToken)
           let accessedModels = getUsedModelArray(affectedZuidArray, models)
@@ -118,6 +118,14 @@ function getUsedModelArray(affectedZuidArray, models){
 
   return modelsHit;
 }
+function populateInstanceData(instance){
+  if(instance.name == undefined){
+    instanceDetails.innerHTML = `<p style="padding: 5px"><strong>You are not logged in.  </strong> <a href="https://accounts.zesty.io" target="_blank" class="button">Log in Now</a></p>`;
+  } else {
+    instanceDetails.innerHTML = `<strong>${instance.name}</strong><br> <span class="light">${instance.ZUID}</span> <a href="${instance.accountsUrl}" target="_blank">edit  settings</a>`;
+  }
+
+}
 
 function populateAccessedModels(accessedModels){
   accessedModels = accessedModels.reverse()
@@ -125,7 +133,7 @@ function populateAccessedModels(accessedModels){
 
   accessedModels.forEach(model => {
     let managerUrl = instance.managerUrl + '/#!/content/' + model.ZUID
-    html += `<strong>${model.name}</strong> <span class="light">(${model.ZUID})</span> <a href="${managerUrl}" target="_blank">edit</a> <br>`
+    html += `<strong>${model.name}</strong> <a href="${managerUrl}" target="_blank">edit</a> <span class="light">(${model.ZUID})</span> <br>`
   })
 
   document.getElementById('affectedZuids').innerHTML = html
