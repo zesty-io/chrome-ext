@@ -99,8 +99,10 @@ getCookies("http://zesty.io", "APP_SID", async function(id) {
           populateInstanceData(instance);
           let modelsAPIURL = instance.apiUrl + '/content/models';
           let models = await getDataFromAPICall(modelsAPIURL, authToken)
-          let accessedModels = getUsedModelArray(affectedZuidArray, models)
-          populateAccessedModels(accessedModels)
+          if(models.length > 0){
+            let accessedModels = getUsedModelArray(affectedZuidArray, models)
+            populateAccessedModels(accessedModels)
+          }
         }
       });
     }
