@@ -3,12 +3,9 @@
   "version": "1.0",
   "description": "A tool for Zesty.io End Users to gain insight into their preview envirnoment views.",
   "permissions": [
-    "activeTab", 
     "declarativeContent", 
     "storage",
     "cookies",
-    "tabs",
-    "history",
     "*://*.zesty.io/",
     "*://*.zesty.io/*",
     "webRequest",
