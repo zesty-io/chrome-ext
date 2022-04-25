@@ -1,0 +1,20 @@
+{
+  "name": "Zesty Explorer",
+  "version": "0.0.1",
+  "manifest_version": 2,
+  "description": "Use the Zesty explorer to any website",
+  "homepage_url": "https://zesty.io/",
+  "background": {
+    "scripts": ["background.js"],
+    "persistent": true
+  },
+  "browser_action": {
+    "default_title": "Zesty Explorer"
+  },
+  "icons": {
+    "16": "/images/zesty-io-social-icon.png",
+    "48": "/images/zesty-io-social-icon.png",
+    "128": "/images/zesty-io-social-icon.png"
+  },
+  "permissions": ["https://*/*", "http://*/*", "tabs"]
+}
