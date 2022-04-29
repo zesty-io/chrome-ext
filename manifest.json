@@ -22,10 +22,10 @@
     "default_title": "Zesty Explorer"
   },
   "icons": {
-    "16": "images/chrome-ext-icons-16.png",
-    "32": "images/chrome-ext-icons-32.png",
-    "48": "images/chrome-ext-icons-48.png",
-    "128": "images/chrome-ext-icons-128.png"
+    "16": "images/zesty-brand-mark-16.png",
+    "32": "images/zesty-brand-mark-32.png",
+    "48": "images/zesty-brand-mark-48.png",
+    "128": "images/zesty-brand-mark-128_360.png"
   },
   "manifest_version": 2
 }
