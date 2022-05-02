@@ -1,15 +1,10 @@
 {
   "name": "Zesty.io WebEngine View Explorer",
-  "version": "1.1",
+  "version": "1.2",
   "description": "A tool for Zesty.io End Users to gain insight into their preview environment views.",
   "permissions": [
-    "declarativeContent",
-    "storage",
-    "cookies",
     "*://*.zesty.io/",
     "*://*.zesty.io/*",
-    "webRequest",
-    "webRequestBlocking",
     "https://*/*",
     "http://*/*",
     "tabs"
