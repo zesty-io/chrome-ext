@@ -5,15 +5,17 @@
    var script = document.createElement("script")
    script.type = "text/javascript"
 
-   let developmentMode =
-      window.location.hostname === "test.zesty.io" ||
-      window.location.hostname === "localhost"
+   // let developmentMode =
+   //    window.location.hostname === "test.zesty.io" ||
+   //    window.location.hostname === "localhost"
 
-   let prodSrc =
-      "https://cdn.jsdelivr.net/gh/zesty-io/explorer@latest/dist/explorer.production.js"
+   // let prodSrc =
+   //    "https://cdn.jsdelivr.net/gh/zesty-io/explorer@latest/dist/explorer.production.js"
 
-   let devSrc = "http://test.zesty.io:5500/dist/explorer.production.js"
+   // let devSrc = "http://test.zesty.io:5500/dist/explorer.production.js"
+   let devSrc = "https://localhost:9000/explorer.production.js"
 
-   script.src = developmentMode ? devSrc : prodSrc
+   // script.src = true ? devSrc : prodSrc
+   script.src = devSrc
    head.appendChild(script)
 })()
