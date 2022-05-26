@@ -9,6 +9,6 @@
   };
 
   script.src =
-    "https://cdn.jsdelivr.net/gh/zesty-io/explorer@latest/dist/explorer.production.js";
+    "https://cdn.jsdelivr.net/gh/zesty-io/live-editor@latest/dist/live-editor.production.js";
   head.appendChild(script);
 })();
