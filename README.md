@@ -1,4 +1,4 @@
-# Zesty.io Chrome Extension View Explorer
+# Zesty.io Chrome Extension for Zesty.io Live Editor
 
 <img src="https://github.com/zesty-io/chrome-ext/blob/master/chrome-store-main.png?raw=true" alt="example image" width="100%">
 
